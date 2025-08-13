@@ -26,8 +26,8 @@ function Sidebar() {
       </div>
 
       <nav className="nav">
-        <a className="nav-item active" href="#">Dashboard</a>
-        <a className="nav-item" href="#">All Users</a>
+        <a className="nav-item" href="#">Dashboard</a>
+        <a className="nav-item active" href="#">All Users</a>
         <a className="nav-item" href="#">All Websites</a>
         <a className="nav-item" href="#">Trending Topics</a>
         <a className="nav-item" href="#">Upcoming Modules</a>
