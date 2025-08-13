@@ -17,7 +17,13 @@ function UsersTable() {
   return (
     <div className="table-wrapper">
       <div className="table-toolbar">
-        <input className="search large" placeholder="Search" />
+        <div className="input-with-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="#16151C" strokeWidth="1.5" />
+            <path d="M20 20l-3.5-3.5" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <input placeholder="Search" />
+        </div>
       </div>
       <table className="table">
         <thead>
@@ -47,9 +53,25 @@ function UsersTable() {
               <td><span className="badge">30 Min.</span></td>
               <td>
                 <div className="row-actions">
-                  <button className="icon-btn" title="view">👁️</button>
-                  <button className="icon-btn" title="edit">✏️</button>
-                  <button className="icon-btn" title="delete">🗑️</button>
+                  <button className="icon-btn" title="view" aria-label="view">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="3.5" stroke="#16151C" strokeWidth="1.5"/>
+                    </svg>
+                  </button>
+                  <button className="icon-btn" title="edit" aria-label="edit">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25Z" stroke="#16151C" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <path d="M14.06 4.19l3.75 3.75" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  </button>
+                  <button className="icon-btn" title="delete" aria-label="delete">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M3 6h18" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>

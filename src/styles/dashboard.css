@@ -61,39 +61,56 @@ body {
 
 .main-content { padding: 24px; overflow: auto; }
 
-.topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-.topbar .search { flex: 1; max-width: 540px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
-.topbar .right { display: flex; align-items: center; gap: 12px; }
-.profile { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); padding: 6px 10px; border-radius: 12px; }
+.topbar { position: relative; height: 82px; display: flex; align-items: center; justify-content: space-between; margin: 20px 0 16px; }
+.header-meta { margin-left: 10px; display: flex; flex-direction: column; }
+.header-meta .page-title { font-weight: 600; font-size: 20px; line-height: 30px; }
+.header-meta .page-subtitle { color: #A2A1A8; font-weight: 300; font-size: 14px; line-height: 22px; }
+
+.header-controls { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+.search-box { display: flex; align-items: center; gap: 10px; width: 261px; height: 50px; border: 1px solid rgba(162,161,168,0.1); border-radius: 10px; padding: 0 16px; }
+.search-box input { border: none; outline: none; width: 100%; font-family: 'Lexend'; font-weight: 300; font-size: 16px; color: rgba(22,21,28,0.2); background: transparent; }
+
+.notif-btn { width: 50px; height: 50px; border-radius: 10px; background: rgba(162,161,168,0.1); border: none; display: grid; place-items: center; cursor: pointer; }
+
+.profile-card { display: flex; align-items: center; gap: 10px; height: 50px; border: 1px solid rgba(162,161,168,0.2); border-radius: 8px; padding: 5px 10px 5px 5px; }
+.profile-avatar { width: 40px; height: 40px; border-radius: 8px; background: url('') center/cover no-repeat, #e2e8f0; display:flex; align-items:center; justify-content:center; font-weight:700; }
+.profile-text .name { font-weight: 600; font-size: 16px; line-height: 24px; }
+.profile-text .role { font-weight: 300; font-size: 12px; line-height: 18px; color: #A2A1A8; margin-top: -2px; }
+.caret { margin-left: 6px; }
+
 .avatar { width: 36px; height: 36px; border-radius: 50%; background: #ddd6fe; color: #4c1d95; display:flex; align-items:center; justify-content:center; font-weight:700; }
 .avatar.small { width: 30px; height: 30px; font-size: 12px; }
 .details .name { font-weight: 600; }
 .details .role { color: var(--muted); font-size: 12px; }
-.icon-btn { border: 0; background: var(--card); border: 1px solid var(--border); width: 36px; height: 36px; border-radius: 10px; cursor: pointer; }
+.icon-btn { border: 1px solid var(--border); background: #fff; width: 28px; height: 28px; border-radius: 999px; cursor: pointer; display: grid; place-items: center; }
+.icon-btn:hover { background: rgba(113,82,243,.06); border-color: rgba(113,82,243,.25); }
+.icon-btn svg { width: 20px; height: 20px; display: block; }
 
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
-.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.card-header { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 12px; }
+.actions-right { margin-left: auto; }
 .page-title { margin: 0; font-size: 18px; }
 .page-subtitle { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
 .actions { display: flex; align-items: center; gap: 8px; }
 .btn { border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 10px 12px; border-radius: 10px; cursor: pointer; }
 .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
 .btn-muted { color: var(--muted); }
+.btn.add-person { display: flex; align-items: center; justify-content: center; gap: 10px; width: 199px; height: 50px; padding: 20px; border-radius: 10px; }
+.btn.add-person svg { flex: none; }
+.btn.filter-btn { box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; width: 117px; height: 50px; padding: 20px; border-radius: 10px; border: 1px solid rgba(162,161,168,0.2); background: #fff; }
 
 .table-wrapper { background: var(--card); }
-.table-toolbar { padding: 8px 0; }
-.table-toolbar .search.large { width: 320px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); }
+.table-toolbar { padding: 8px 0 12px; }
+.input-with-icon { box-sizing: border-box; display: flex; align-items: center; gap: 10px; width: 330px; height: 50px; border: 1px solid rgba(162,161,168,0.1); border-radius: 10px; padding: 13px 16px; }
+.input-with-icon input { border: none; outline: none; flex: 1; font-family: 'Lexend'; font-weight: 300; font-size: 16px; line-height: 24px; color: rgba(22,21,28,0.2); }
 
-table.table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-table.table thead th { text-align: left; color: var(--muted); font-weight: 600; font-size: 12px; padding: 12px; }
-table.table tbody tr { background: var(--bg); }
-table.table tbody td { padding: 12px; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-table.table tbody td:first-child { border-left: 1px solid var(--border); border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-table.table tbody td:last-child { border-right: 1px solid var(--border); border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+table.table { width: 100%; border-collapse: collapse; }
+table.table thead th { text-align: left; color: var(--muted); font-weight: 600; font-size: 12px; padding: 14px 12px; border-bottom: 1px solid var(--border); }
+table.table tbody td { padding: 14px 12px; border-bottom: 1px solid var(--border); background: transparent; }
 
 .user-cell { display: flex; align-items: center; gap: 10px; }
-.badge { background: rgba(108,76,255,.12); color: var(--primary); padding: 6px 8px; border-radius: 8px; font-size: 12px; font-weight: 600; }
-.row-actions { display: flex; gap: 6px; }
+.badge { background: rgba(113,82,243,.12); color: var(--primary); padding: 6px 8px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+.row-actions { display: flex; gap: 8px; }
 
 .table-footer { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); }
 .pagination { display: flex; align-items: center; gap: 8px; }
