@@ -18,7 +18,7 @@ function EmployeeDetailsPage() {
       <Sidebar />
       <main className="main-content">
         <Topbar />
-        <section className="card" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <section className="card">
           <EmployeeDetailsPanel open={true} user={user || { id: userId, name: 'Employee', gender: '', country: '' }} onClose={handleClose} />
         </section>
       </main>
