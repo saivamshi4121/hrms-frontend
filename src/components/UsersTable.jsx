@@ -6,7 +6,7 @@ function getInitials(fullName) {
   return initials || 'U';
 }
 
-const mockUsers = [
+export const mockUsers = [
   { name: 'Darlene Robertson', id: '3434', mobile: '345321231', gender: 'Male', country: 'India' },
   { name: 'Floyd Miles', id: '3434', mobile: '987890345', gender: 'Female', country: 'India' },
   { name: 'Cody Fisher', id: '3434', mobile: '453367122', gender: 'Female', country: 'India' },
@@ -19,7 +19,9 @@ const mockUsers = [
   { name: 'Devon Lane', id: '3434', mobile: '091233412', gender: 'Male', country: 'India' },
 ];
 
-function UsersTable() {
+function UsersTable({ users, onView }) {
+  const data = users && Array.isArray(users) ? users : mockUsers;
+  const handleView = typeof onView === 'function' ? onView : () => {};
   return (
     <div className="table-wrapper">
       <div className="table-toolbar">
@@ -44,7 +46,7 @@ function UsersTable() {
           </tr>
         </thead>
         <tbody>
-          {mockUsers.map((user) => (
+          {data.map((user) => (
             <tr key={user.name}>
               <td>
                 <div className="user-cell">
@@ -59,7 +61,7 @@ function UsersTable() {
               <td><span className="badge">30 Min.</span></td>
               <td>
                 <div className="row-actions">
-                  <button type="button" className="icon-btn" title="View" aria-label="View profile">
+                  <button type="button" className="icon-btn" title="View" aria-label="View profile" onClick={() => handleView(user)}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="3.5" stroke="#16151C" strokeWidth="1.5"/>
