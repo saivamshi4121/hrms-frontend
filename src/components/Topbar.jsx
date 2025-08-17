@@ -1,4 +1,5 @@
 import React from 'react';
+import RobertAllenImg from '../assets/Robert Allen.png';
 
 function Topbar({ title = 'All Employees', subtitle = 'All Employee Information' }) {
   return (
@@ -22,7 +23,7 @@ function Topbar({ title = 'All Employees', subtitle = 'All Employee Information'
           </svg>
         </button>
         <div className="profile-card">
-          <div className="profile-avatar">RA</div>
+          <div className="profile-avatar"><img src={RobertAllenImg} alt="" /></div>
           <div className="profile-text">
             <div className="name">Robert Allen</div>
             <div className="role">HR Manager</div>

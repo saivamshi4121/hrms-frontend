@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { mockUsers } from '../components/UsersTable';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import EmployeeDetailsPanel from '../components/EmployeeDetailsPanel';
@@ -9,7 +10,8 @@ function EmployeeDetailsPage() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { userId } = useParams();
-  const user = state?.user || null;
+  const decodedParam = userId ? decodeURIComponent(userId) : '';
+  const user = state?.user || mockUsers.find(u => String(u.id) === decodedParam || u.name === decodedParam) || null;
 
   const handleClose = () => navigate('/');
 
@@ -17,9 +19,9 @@ function EmployeeDetailsPage() {
     <div className="app-shell">
       <Sidebar />
       <main className="main-content">
-        <Topbar />
+        <Topbar title="User Detail" subtitle="User All Information" />
         <section className="card">
-          <EmployeeDetailsPanel open={true} user={user || { id: userId, name: 'Employee', gender: '', country: '' }} onClose={handleClose} />
+          <EmployeeDetailsPanel open={true} user={user || { id: decodedParam, name: 'Employee', gender: '', country: '' }} onClose={handleClose} />
         </section>
       </main>
     </div>

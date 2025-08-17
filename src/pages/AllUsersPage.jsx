@@ -15,7 +15,7 @@ function AllUsersPage() {
     // keep old inline behavior as fallback, but navigate to full page as requested
     setSelectedUser(user);
     setPanelOpen(true);
-    navigate(`/users/${encodeURIComponent(user.id)}`, { state: { user } });
+    navigate(`/users/${encodeURIComponent(user.name)}`, { state: { user } });
   };
 
   const handleClose = () => {

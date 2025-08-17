@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IconUserOutline, IconCalendarCheckOutline, IconDownloadOutline, IconBookmarkOutline, IconDashboardOutline } from './icons';
 
 function getInitials(fullName) {
   const parts = String(fullName).trim().split(/\s+/);
@@ -35,12 +36,8 @@ function EmployeeDetailsPanel({ open, user, onClose }) {
         <div className="profile-details">
         <div className="panel-header">
           <div className="user-hero">
-            <div
-              className="profile-photo"
-              aria-hidden="true"
-              style={user.photoUrl ? { backgroundImage: `url(${user.photoUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'transparent' } : undefined}
-            >
-              {getInitials(user.name)}
+            <div className="profile-photo" aria-hidden="true">
+              {user.photoUrl ? <img src={user.photoUrl} alt="" /> : getInitials(user.name)}
             </div>
             <div className="details">
               <div className="profile-name">{user.name}</div>
@@ -80,18 +77,23 @@ function EmployeeDetailsPanel({ open, user, onClose }) {
           <div className="details-grid">
             <aside className="side-card">
               <button type="button" className={`side-item ${activeTab === 'Profile' ? 'active' : ''}`} onClick={() => setActiveTab('Profile')}>
+                <span className="nav-icon" aria-hidden="true"><IconUserOutline /></span>
                 <span>Profile</span>
               </button>
               <button type="button" className={`side-item ${activeTab === 'Daily' ? 'active' : ''}`} onClick={() => setActiveTab('Daily')}>
+                <span className="nav-icon" aria-hidden="true"><IconCalendarCheckOutline /></span>
                 <span>Daily Activity</span>
               </button>
               <button type="button" className={`side-item ${activeTab === 'Download' ? 'active' : ''}`} onClick={() => setActiveTab('Download')}>
+                <span className="nav-icon" aria-hidden="true"><IconDownloadOutline /></span>
                 <span>Download</span>
               </button>
               <button type="button" className={`side-item ${activeTab === 'Bookmarks' ? 'active' : ''}`} onClick={() => setActiveTab('Bookmarks')}>
+                <span className="nav-icon" aria-hidden="true"><IconBookmarkOutline /></span>
                 <span>Bookmarks</span>
               </button>
               <button type="button" className={`side-item ${activeTab === 'Dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('Dashboard')}>
+                <span className="nav-icon" aria-hidden="true"><IconDashboardOutline /></span>
                 <span>Dashboard</span>
               </button>
             </aside>

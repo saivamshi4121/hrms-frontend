@@ -1,4 +1,14 @@
 import React from 'react';
+import DarleneRobertsonImg from '../assets/Darlene Robertson.png';
+import FloydMilesImg from '../assets/Floyd Miles.png';
+import CodyFisherImg from '../assets/Cody Fisher.png';
+import DianneRussellImg from '../assets/Dianne Russell.png';
+import SavannahNguyenImg from '../assets/Savannah Nguyen.png';
+import JacobJonesImg from '../assets/Jacob Jones.png';
+import MarvinMcKinneyImg from '../assets/Marvin McKinney.png';
+import BrooklynSimmonsImg from '../assets/Brooklyn Simmons.png';
+import KristinWatsonImg from '../assets/Kristin Watson.png';
+import DevonLaneImg from '../assets/Devon Lane.png';
 
 function getInitials(fullName) {
   const parts = String(fullName).trim().split(/\s+/);
@@ -7,16 +17,16 @@ function getInitials(fullName) {
 }
 
 export const mockUsers = [
-  { name: 'Darlene Robertson', id: '3434', mobile: '345321231', gender: 'Male', country: 'India' },
-  { name: 'Floyd Miles', id: '3434', mobile: '987890345', gender: 'Female', country: 'India' },
-  { name: 'Cody Fisher', id: '3434', mobile: '453367122', gender: 'Female', country: 'India' },
-  { name: 'Dianne Russell', id: '3434', mobile: '345321231', gender: 'Male', country: 'India' },
-  { name: 'Savannah Nguyen', id: '3434', mobile: '453677881', gender: 'Female', country: 'India' },
-  { name: 'Jacob Jones', id: '3434', mobile: '009918765', gender: 'Male', country: 'India' },
-  { name: 'Marvin McKinney', id: '3434', mobile: '238870122', gender: 'Female', country: 'India' },
-  { name: 'Brooklyn Simmons', id: '3434', mobile: '124335111', gender: 'Male', country: 'India' },
-  { name: 'Kristin Watson', id: '3434', mobile: '435540099', gender: 'Female', country: 'India' },
-  { name: 'Devon Lane', id: '3434', mobile: '091233412', gender: 'Male', country: 'India' },
+  { name: 'Darlene Robertson', id: '3434', mobile: '345321231', gender: 'Male', country: 'India', photoUrl: DarleneRobertsonImg },
+  { name: 'Floyd Miles', id: '3434', mobile: '987890345', gender: 'Female', country: 'India', photoUrl: FloydMilesImg },
+  { name: 'Cody Fisher', id: '3434', mobile: '453367122', gender: 'Female', country: 'India', photoUrl: CodyFisherImg },
+  { name: 'Dianne Russell', id: '3434', mobile: '345321231', gender: 'Male', country: 'India', photoUrl: DianneRussellImg },
+  { name: 'Savannah Nguyen', id: '3434', mobile: '453677881', gender: 'Female', country: 'India', photoUrl: SavannahNguyenImg },
+  { name: 'Jacob Jones', id: '3434', mobile: '009918765', gender: 'Male', country: 'India', photoUrl: JacobJonesImg },
+  { name: 'Marvin McKinney', id: '3434', mobile: '238870122', gender: 'Female', country: 'India', photoUrl: MarvinMcKinneyImg },
+  { name: 'Brooklyn Simmons', id: '3434', mobile: '124335111', gender: 'Male', country: 'India', photoUrl: BrooklynSimmonsImg },
+  { name: 'Kristin Watson', id: '3434', mobile: '435540099', gender: 'Female', country: 'India', photoUrl: KristinWatsonImg },
+  { name: 'Devon Lane', id: '3434', mobile: '091233412', gender: 'Male', country: 'India', photoUrl: DevonLaneImg },
 ];
 
 function UsersTable({ users, onView }) {
@@ -50,7 +60,13 @@ function UsersTable({ users, onView }) {
             <tr key={user.name}>
               <td>
                 <div className="user-cell">
-                  <div className="avatar small" aria-hidden="true">{getInitials(user.name)}</div>
+                  <div className="avatar small" aria-hidden="true">
+                    {user.photoUrl ? (
+                      <img src={user.photoUrl} alt="" />
+                    ) : (
+                      getInitials(user.name)
+                    )}
+                  </div>
                   <span>{user.name}</span>
                 </div>
               </td>
