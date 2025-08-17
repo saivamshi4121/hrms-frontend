@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
@@ -26,8 +27,9 @@ function Sidebar() {
       </div>
 
       <nav className="nav">
-        <a className="nav-item" href="#" aria-current="false">Dashboard</a>
-        <a className="nav-item active" href="#" aria-current="page">All Users</a>
+        <NavLink to="/dashboard" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>Dashboard</NavLink>
+        <NavLink end to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>All Users</NavLink>
+        <NavLink to="/bookmarks" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>Bookmarks</NavLink>
         <a className="nav-item" href="#">All Websites</a>
         <a className="nav-item" href="#">Trending Topics</a>
         <a className="nav-item" href="#">Upcoming Modules</a>

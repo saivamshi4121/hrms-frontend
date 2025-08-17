@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Topbar() {
+function Topbar({ title = 'All Employees', subtitle = 'All Employee Information' }) {
   return (
     <div className="topbar">
       <div className="header-meta">
-        <div className="page-title">All Employees</div>
-        <div className="page-subtitle">All Employee Information</div>
+        <div className="page-title">{title}</div>
+        <div className="page-subtitle">{subtitle}</div>
       </div>
       <div className="header-controls">
         <div className="search-box">

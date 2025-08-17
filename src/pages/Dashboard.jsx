@@ -1,34 +1,32 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
-import UsersTable from '../components/UsersTable';
 import '../styles/dashboard.css';
+
+const metrics = [
+  { id: 1, title: 'Total Bookmarks', value: 56, delta: '+12%' },
+  { id: 2, title: 'Total Visited Site', value: 1050, delta: '+5%' },
+  { id: 3, title: 'Today Active Time', value: '470 Hours', delta: '-8%' },
+  { id: 4, title: 'Total Download', value: 250, delta: '+12%' },
+];
 
 function Dashboard() {
   return (
     <div className="app-shell">
       <Sidebar />
       <main className="main-content">
-        <Topbar />
+        <Topbar title="Dashboard" subtitle="Overview" />
         <section className="card">
-          <div className="card-header">
-            <div className="actions actions-right">
-              <button type="button" className="btn btn-primary add-person">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="9" stroke="#FFFFFF" strokeWidth="1.5"/>
-                  <path d="M12 8v8M8 12h8" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-                <span>Add New Person</span>
-              </button>
-              <button type="button" className="btn filter-btn" aria-label="Open filters">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 5h18M6 12h12M10 19h4" stroke="#16151C" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-                <span>Filter</span>
-              </button>
-            </div>
+          <div className="kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 16 }}>
+            {metrics.map((m) => (
+              <div key={m.id} className="kpi-card" style={{ border: '1px solid #eee', borderRadius: 12, padding: 16 }}>
+                <div className="kpi-title" style={{ color: '#8B8A93', fontSize: 14 }}>{m.title}</div>
+                <div className="kpi-value" style={{ fontSize: 28, fontWeight: 700, marginTop: 6 }}>{m.value}</div>
+                <div className="kpi-meta" style={{ marginTop: 8, fontSize: 12, color: '#8B8A93' }}>Update: July 16, 2025</div>
+                <div className="kpi-delta" style={{ position: 'absolute', right: 24, top: 24, color: '#22C55E', fontWeight: 600 }}>{m.delta}</div>
+              </div>
+            ))}
           </div>
-          <UsersTable />
         </section>
       </main>
     </div>
