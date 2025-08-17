@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { IconUserOutline, IconCalendarCheckOutline, IconDownloadOutline, IconBookmarkOutline, IconDashboardOutline } from './icons';
+import UntitledIcon from '../assets/untitled.png';
+import VideoNameIcon from '../assets/video name.png';
 
 function getInitials(fullName) {
   const parts = String(fullName).trim().split(/\s+/);
@@ -161,11 +163,7 @@ function EmployeeDetailsPanel({ open, user, onClose }) {
                         <div className="ar-col date">{row.date}</div>
                         <div className="ar-col website">
                           <div className="site-cell">
-                            {activeTab === 'Daily' ? (
-                              <span className="site-icon" aria-hidden="true" />
-                            ) : (
-                              <span className="file-icon" aria-hidden="true" />
-                            )}
+                            <img className="row-icon" src={activeTab === 'Daily' ? UntitledIcon : VideoNameIcon} alt="" />
                             {activeTab === 'Daily' ? (
                               <>
                                 <span className="site-title">{row.title}</span>

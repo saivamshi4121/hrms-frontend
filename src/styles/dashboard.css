@@ -174,8 +174,7 @@ table.table tbody td { padding: 12px 10px; border-bottom: 1px solid var(--border
 .activity-row { display: grid; grid-template-columns: 132px 1fr 95px; height: 44px; border-bottom: 1px solid rgba(162,161,168,0.1); }
 .activity-row .ar-col { display: flex; align-items: center; padding: 10px 10px 10px 0; }
 .site-cell { display: flex; align-items: center; gap: 10px; }
-.site-icon { width: 18px; height: 23px; background: radial-gradient(circle at 25% 25%, #f24e1e 25%, transparent 26%), radial-gradient(circle at 75% 25%, #a259ff 25%, transparent 26%), radial-gradient(circle at 50% 75%, #1abcfe 25%, transparent 26%); border-radius: 4px; }
-.file-icon { width: 18px; height: 18px; border-radius: 3px; background: #1d4ed8; box-shadow: inset 0 0 0 2px #bfdbfe; }
+.row-icon { width: 18px; height: 18px; object-fit: contain; display: block; }
 .site-title { font-weight: 500; }
 .dash { margin: 0 4px; font-weight: 500; }
 .site-app { font-weight: 500; }
